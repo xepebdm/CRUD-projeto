@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../bootstrap/css/bootstrap.css" />
+
+</head>
+<body>
+	<div th:fragment="header">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" th:href="@{/}">Inicio</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse ml-auto"	id="navbarSupportedContent" >
+			<ul class="navbar-nav mr-auto">
+
+				<li class="nav-item">
+				<a class="nav-link" href="#" th:href="@{/form}" >CRIAR</a></li>
+				<li class="nav-item">
+				<a class="nav-link" href="#" 	th:href="@{/deleteAll}" >DELETAR TODOS</a></li>
+
+				<li class="nav-item">
+				<form action="#" th:action="@{/pesquisar}" method="get">
+					<select name="type" >
+						<option th:value="'nome'"  th:text="NOME"></option>
+						<option th:value="'cpf'"  th:text="CPF"></option>
+					</select>
+	 				<input type="text" name="value" required/>
+    				<input type="submit"/>
+				</form>
+				
+				</li>				
+			</ul>
+			
+			
+		</div>
+		
+	</nav>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../bootstrap/css/bootstrap.css" />
+<title>Home</title>
+<style>
+h3 {
+	text-align: justify;
+}
+</style>
+</head>
+<body>
+	<div th:replace="header :: header"></div>
+
+	<h3 class="col-md-6 offset-md-1" th:text="${mensagem}"></h3>
+
+	<table style="width: 1100px;"
+		class="table table-sm col-md-6 offset-md-1">
+		<thead class="thead-dark bg-dark">
+			<tr>
+				<th scope="col" hidden="true">ID</th>
+				<th scope="col">Nome</th>
+				<th scope="col">CPF</th>
+				<th scope="col">E-mail</th>
+			</tr>
+		</thead>
+		<tbody id="tabela">
+
+			<tr th:each="user : ${usuarios}">
+				<td th:text="${user.id}" hidden="true"></td>
+				<td th:text="${user.nome}"></td>
+				<td th:text="${user.cpf}"></td>
+				<td th:text="${user.email}"></td>
+				<td><a class="btn btn-success"
+					th:href="@{/form(id=${user.id})}" th:method="get" th:type="button">EDITAR</a></td>
+				<td><a class="btn btn-danger"
+					th:href="@{/delete(id=${user.id})}" th:method="get"
+					th:type="button">DELETAR</a></td>
+			</tr>
+
+		</tbody>
+	</table>
+
+</body>
+</html>
